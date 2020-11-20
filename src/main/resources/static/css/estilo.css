@@ -1,4 +1,4 @@
-style*, *:before, *:after {
+style*,*:before,*:after {
 	
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -24,10 +24,10 @@ h1 {
 	text-align: center;
 }
 
-input[type="text"], input[type="password"], input[type="date"], input[type="datetime"],
-	input[type="email"], input[type="number"], input[type="search"], input[type="tel"],
-	input[type="time"], input[type="url"], textarea {
-	background: rgba(255, 255, 255, 0.1);
+input[type="text"],input[type="password"],input[type="date"],input[type="datetime"],
+input[type="email"],input[type="number"],input[type="search"],input[type="tel"],
+input[type="time"],input[type="url"],textarea {
+	background: rgba(255,255,255,0.1);
 	border: none;
 	font-size: 16px;
 	height: auto;
@@ -37,12 +37,12 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 	width: 95%;
 	background-color: #e8eeef;
 	color: #8a97a0;
-	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
 	margin-bottom: 30px;
 }
 
 select {
-	background: rgba(255, 255, 255, 0.1);
+	background: rgba(255,255,255,0.1);
 	border: none;
 	font-size: 16px;
 	height: auto;
@@ -52,11 +52,11 @@ select {
 	width: 100%;
 	background-color: #e8eeef;
 	color: #8a97a0;
-	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
 	margin-bottom: 30px;
 }
 
-input[type="radio"], input[type="checkbox"] {
+input[type="radio"],input[type="checkbox"] {
 	margin: 0 4px 8px 0;
 }
 
@@ -77,7 +77,7 @@ button {
 	width: 100%;
 	border: 1px solid #150702;
 	border-width: 1px 1px 3px;
-	box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+	box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
 	margin-bottom: 10px;
 }
 
@@ -111,7 +111,7 @@ label.light {
 	margin-right: 4px;
 	line-height: 30px;
 	text-align: center;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+	text-shadow: 0 1px 0 rgba(255,255,255,0.2);
 	border-radius: 100%;
 }
 
