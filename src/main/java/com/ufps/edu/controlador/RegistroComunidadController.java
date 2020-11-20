@@ -1,8 +1,6 @@
 package com.ufps.edu.controlador;
 
 import java.text.ParseException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.examen.demo.entities.Visitante;
+
 import com.google.gson.Gson;
 import com.ufps.edu.model.dao.IBasicoDao;
 import com.ufps.edu.model.dao.IComorbilidadDao;
@@ -89,54 +87,14 @@ public class RegistroComunidadController {
 	}
 	
 	@PostMapping("registrarDatosPersonales")
-	public String registrarDatosPersonales(@ModelAttribute(value="visitante") Basico basico, RedirectAttributes r, Model model) throws ParseException {
-		Optional<Basico> opt=basicoDao.findByDocumento(documento);
-		System.out.println(embarazo);
-		if(opt.isPresent()) {
-			Basico basico=opt.get();
-			model.addAttribute("documento", basico.getDocumento());
-			model.addAttribute("mas60", basico.getMas60());
-			model.addAttribute("menos15", basico.getMenos15());
-			model.addAttribute("salud", basico.getSalud());
-			model.addAttribute("contactoNombre",basico.getContactoNombre());
-			model.addAttribute("contactoTelefono",basico.getContactoNombre());
-			
-			basico.setNombre(nombre);
-			basico.setTelefono(telefono);
-			basico.setTipo(Long.parseLong(tipoPersona));
-			basico.setEps(Long.parseLong(eps));
-			basico.setGenero(genero);
-			if(!fechaNacimiento.isEmpty()) {
-			basico.setFechaNacimiento(LocalDate.parse(fechaNacimiento, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-			}
-			basico.setModalidad(Long.parseLong(modalidad));
-			if(embarazo.equalsIgnoreCase("on")) {
-				basico.setEmbarazo(true);
-			}else {
-				basico.setEmbarazo(false);
-			}
-			basico.setDocumento(documento);
-			basicoDao.save(basico);
-			
-			return "personas";
-		}else {
-		Basico entity=new Basico();
-		entity.setNombre(nombre);
-		entity.setTelefono(telefono);
-		entity.setTipo(Long.parseLong(tipoPersona));
-		entity.setEps(Long.parseLong(eps));
-		entity.setGenero(genero);
-		entity.setModalidad(Long.parseLong(modalidad));
-		if(embarazo.equalsIgnoreCase("on")) {
-			entity.setEmbarazo(true);
-		}
-		entity.setDocumento(documento);
-		basicoDao.save(entity);
-		model.addAttribute("documento", documento);
+	public String registrarDatosPersonales(@ModelAttribute(value="basico") Basico basico, RedirectAttributes r, Model model) throws ParseException {
+	
+
+		
 		return "personas";
 		}
 		
-	}
+	
 
 	@PostMapping("registrarPersonas")
 	public String registrarPersonas(@RequestParam(required = false, defaultValue = "false") String mas60, @RequestParam(required = false, defaultValue = "false") String menos15,
@@ -184,58 +142,7 @@ public class RegistroComunidadController {
 	}
 	
 	@PostMapping("registrarComorbilidades")
-	public String registrarComorbilidad(@ModelAttribute(value="visitante") Comorbilidad comorbilidad, RedirectAttributes r, Model model) {
-		
-		Comorbilidad entity=new Comorbilidad();
-		Optional<Basico> opt=basicoDao.findByDocumento(documento);
-		entity.setId(opt.get().getId());
-		if(diabetes.equalsIgnoreCase("on")) {
-			entity.setDiabetes(true);
-		}else {
-			entity.setDiabetes(false);
-		}
-		if(cardio.equalsIgnoreCase("on")) {
-			entity.setCardio(true);
-		}else {
-			entity.setCardio(false);
-		}
-		if(cerebro.equalsIgnoreCase("on")) {
-			entity.setCerebro(true);
-		}else {
-			entity.setCerebro(false);
-		}
-		if(cancer.equalsIgnoreCase("on")) {
-			entity.setCancer(true);
-		}else {
-			entity.setCancer(false);
-		}
-		if(corticoides.equalsIgnoreCase("on")) {
-			entity.setCorticoides(true);
-		}else {
-			entity.setCorticoides(false);
-		}
-		if(epoc.equalsIgnoreCase("on")) {
-			entity.setEpoc(true);
-		}else {
-			entity.setEpoc(false);
-		}
-		if(nutricion.equalsIgnoreCase("on")) {
-			entity.setNutricion(true);
-		}else {
-			entity.setNutricion(false);
-		}
-		if(fumador.equalsIgnoreCase("on")) {
-			entity.setFumador(true);
-		}else {
-			entity.setFumador(false);
-		}
-		if(vih.equalsIgnoreCase("on")) {
-			entity.setVih(true);
-		}else {
-			entity.setVih(false);
-		}
-		comorbilidadDao.save(entity);
-		model.addAttribute("documento", documento);
+	public String registrarComorbilidad(@ModelAttribute(value="comorbilidad") Comorbilidad comorbilidad, RedirectAttributes r, Model model) {
 		
 		
 		return "registro";
