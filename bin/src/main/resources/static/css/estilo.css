@@ -33,11 +33,16 @@ input[type="time"],input[type="url"],textarea {
 	height: auto;
 	margin: 0;
 	outline: 0;
-	padding: 15px;
+	padding: 
+		15px;
 	width: 95%;
 	background-color: #e8eeef;
 	color: #8a97a0;
-	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+	box-shadow: 0 1px 0 rgba(0,
+		0,
+		0,
+		0.03
+	) inset;
 	margin-bottom: 30px;
 }
 
